@@ -1,4 +1,4 @@
-import { userTable } from "../schemas/user";
+import { userTable } from "../schema/user";
 import { db } from "../../index";
 
 const seedUsers = async function () {

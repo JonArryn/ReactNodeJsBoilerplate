@@ -1,14 +1,34 @@
 {
-  "name": "${PROJECT_NAME}",
+  "name": "NodeBackend",
   "version": "1.0.0",
   "description": "",
   "main": "dist/index.js",
+  "type": "module",
   "scripts": {
-    "build": "tsc"
+    "dev": "npx tsx --env-file=.env --watch  src/index.ts",
+    "build": "tsc",
+    "migrate": "drizzle-kit push"
   },
-  "dependencies": {},
+  "dependencies": {
+    "dotenv": "^16.4.7",
+    "drizzle-orm": "^0.38.4",
+    "express": "^5.0.1",
+    "passport": "^0.7.0",
+    "pg": "^8.13.1"
+  },
   "devDependencies": {
-    "typescript": "^5.5.3"
+    "@eslint/js": "^9.19.0",
+    "@types/express": "^5.0.0",
+    "@types/node": "^22.10.10",
+    "@types/pg": "^8.11.11",
+    "drizzle-kit": "^0.30.4",
+    "eslint": "^9.19.0",
+    "eslint-config-prettier": "^10.0.1",
+    "globals": "^15.14.0",
+    "prettier": "3.4.2",
+    "tsx": "^4.19.2",
+    "typescript": "^5.5.3",
+    "typescript-eslint": "^8.22.0"
   },
   "private": true
 }

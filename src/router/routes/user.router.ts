@@ -1,13 +1,8 @@
-import express, { Request, Response } from "express";
+import express from "express";
+import * as userController from "../../controller/user.controller";
 
 const router = express.Router();
-import db from "../db/dbConnection";
 
-router.get("/user", async (req: Request, res: Response) => {
-  console.log("user route pinged");
-  res.json({
-    message: "success",
-  });
-});
+router.get("/user", userController.getAll);
 
 export { router as userRouter };

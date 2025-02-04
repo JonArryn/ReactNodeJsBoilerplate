@@ -1,0 +1,35 @@
+services:
+  node-backend:
+    image: nodeboiler
+    build:
+      context: .
+      dockerfile: Dockerfile
+    env_file: ./.env
+    volumes:
+      - ./:/app
+      - node_modules:/app/node_modules
+    ports:
+      - "3000:3000"
+    networks:
+      - node
+    depends_on:
+      - postgres-db
+  postgres-db:
+    image: postgres:17
+    environment:
+      POSTGRES_USER: devuser
+      POSTGRES_PASSWORD: devpassword
+      POSTGRES_DB: devdb
+    ports:
+      - "5432:5432"
+    networks:
+      - node
+    volumes:
+      - postgres-db:/var/lib/postgresql/data
+
+volumes:
+  postgres-db:
+  node_modules:
+
+networks:
+  node:
